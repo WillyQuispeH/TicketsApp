@@ -6,3 +6,87 @@
 {"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/company/update/0d5fa45e-bc83-47a2-b5c1-c4a6212d7992"},"timestamp":"2023-03-31 18:41:01"}
 {"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/company/deleteById/19ad6d71-8401-424e-9e1b-601d42573c62"},"timestamp":"2023-03-31 18:48:46"}
 {"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/company/deleteById/19ad6d71-8401-424e-9e1b-601d42573c62"},"timestamp":"2023-03-31 18:49:05"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 19:45:53"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"user/getAll"},"timestamp":"2023-03-31 19:45:53"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 19:47:49"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"user/getAll"},"timestamp":"2023-03-31 19:47:50"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 19:49:11"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"user/getAll"},"timestamp":"2023-03-31 19:49:12"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 19:51:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-03-31 20:05:38"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/c"},"timestamp":"2023-03-31 20:31:28"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 20:32:05"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 20:32:19"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/y"},"timestamp":"2023-03-31 20:33:19"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 20:38:49"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 20:39:12"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/p"},"timestamp":"2023-03-31 20:40:13"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 20:41:29"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 20:41:36"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 20:41:45"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-03-31 20:50:24"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/i"},"timestamp":"2023-03-31 20:56:51"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/31a43aad-0255-403c-bd9f-1246bb0802d0"},"timestamp":"2023-03-31 21:20:01"}
+{"level":"error","message":{"error":"there is no parameter $1","model":"customer/getById"},"timestamp":"2023-03-31 21:20:02"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/31a43aad-0255-403c-bd9f-1246bb0802d0"},"timestamp":"2023-03-31 21:23:25"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/d1ea9938-dc33-472e-b1d7-c4b0362c953c"},"timestamp":"2023-03-31 21:23:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 21:24:18"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f3759097-4567-4ed8-b624-f53ca68634fa"},"timestamp":"2023-03-31 21:27:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f3759097-4567-4ed8-b624-f53ca68634fa"},"timestamp":"2023-03-31 21:27:47"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f3759097-4567-4ed8-b624-f53ca68634fa"},"timestamp":"2023-03-31 21:28:47"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f3759097-4567-4ed8-b624-f53ca68634fa"},"timestamp":"2023-03-31 21:29:45"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 21:49:11"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 21:59:00"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:01:08"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:01:34"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:03:04"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:04:09"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:04:41"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/f3759097-4567-4ed8-7624-f53ca63634fa"},"timestamp":"2023-03-31 22:04:56"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:05:39"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:06:19"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:07:18"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:13:10"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:13:39"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"company/getAll"},"timestamp":"2023-03-31 22:13:39"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:13:42"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"company/getAll"},"timestamp":"2023-03-31 22:13:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:13:44"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"company/getAll"},"timestamp":"2023-03-31 22:13:44"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:13:46"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"company/getAll"},"timestamp":"2023-03-31 22:13:47"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:14:10"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"company/getAll"},"timestamp":"2023-03-31 22:14:11"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:14:16"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"person/getAll"},"timestamp":"2023-03-31 22:14:16"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:14:48"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"person/getAll"},"timestamp":"2023-03-31 22:14:49"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:14:50"}
+{"level":"error","message":{"error":"too many connections for role \"ajeianeg\"","model":"person/getAll"},"timestamp":"2023-03-31 22:14:50"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:19:20"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:19:24"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:20:25"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:22:38"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:22:40"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:47:25"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:47:31"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 22:47:44"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/deleteById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:49:16"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/deleteById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:50:23"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/deleteById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:50:33"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/deleteById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:50:47"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/f3759097-4567-4ed8-b624-f53ca63634fa"},"timestamp":"2023-03-31 22:51:13"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:51:22"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 22:51:30"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/c"},"timestamp":"2023-03-31 22:57:10"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/company/getAll"},"timestamp":"2023-03-31 22:57:56"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-03-31 22:58:08"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-03-31 22:58:20"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 22:59:46"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"company_rut_key\"","model":"company/update"},"timestamp":"2023-03-31 22:59:47"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 23:02:13"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"company_rut_key\"","model":"company/update"},"timestamp":"2023-03-31 23:02:14"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/company/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 23:03:22"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"company_rut_key\"","model":"company/update"},"timestamp":"2023-03-31 23:03:23"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/company/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-03-31 23:10:16"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"company_rut_key\"","model":"company/update"},"timestamp":"2023-03-31 23:10:17"}

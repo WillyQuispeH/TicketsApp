@@ -3,10 +3,10 @@ import pg from "pg";
 const { Pool } = pg;
 
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "Tickets-App",
-  password: "admin",
+  user: "ajeianeg",
+  host: "babar.db.elephantsql.com",
+  database: "ajeianeg",
+  password: "qTcutS6HtTXmt8aKIf5XbpfyqcC4GxMl",
   port: 5432,
   keepAlive: true,
 });

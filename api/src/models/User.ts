@@ -1,6 +1,12 @@
 import pool from "../util/database";
 
-import { _assignPassword, _create, _getAll, _validate } from "../queries/user";
+import {
+  _assignPassword,
+  _create,
+  _deleteById,
+  _getAll,
+  _validate,
+} from "../queries/user";
 
 import { hashPassword, passwordCompare } from "../util/password";
 
@@ -43,4 +49,13 @@ const validate: any = async (id: string, password: string) => {
   }
 };
 
-export { getAll, create, assignPassword, validate };
+const deleteById: any = async (id: string) => {
+  try {
+    const result = await pool.query(_deleteById, [id]);
+    return { sucess: true, data: result.rowCount, error: false };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+};
+
+export { getAll, create, assignPassword, validate, deleteById };

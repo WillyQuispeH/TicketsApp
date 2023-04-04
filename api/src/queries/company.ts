@@ -1,4 +1,6 @@
-const _getAll = `SELECT id, rut, companyname, legalrepresentative, line, email, phone, address, district FROM ticket.company;`;
+const _getAll = `SELECT u.id, person_id, rut, companyname, legalrepresentative, line, email, phone, address, district
+FROM ticket."user" u
+INNER JOIN ticket.company c ON c.id = u.person_id;`;
 
 const _create = `INSERT INTO ticket.company 
 ( rut, companyname, legalrepresentative, line, email, phone, address, district)
@@ -21,4 +23,7 @@ const _update = `UPDATE ticket.company
 
 const _deleteById = `DELETE FROM ticket.company WHERE id = $1;`;
 
-export { _getAll, _create, _update, _deleteById };
+const _getByEmail = `SELECT id, rut, companyname, legalrepresentative, line, email, phone, address, district
+FROM ticket.company WHERE email=$1;`;
+
+export { _getAll, _create, _update, _deleteById , _getByEmail };

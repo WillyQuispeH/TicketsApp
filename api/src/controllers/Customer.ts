@@ -5,6 +5,7 @@ import * as PersonModel from "../models/Person";
 import * as UserModel from "../models/User";
 import * as CompanyModel from "../models/Company";
 
+
 const getById = async (req: any, res: any) => {
   const { id } = req.params;
   const resultModel = await CustomerModel.getById(id);
@@ -107,10 +108,21 @@ const create = async (req: any, res: any) => {
         .json({ sucess: false, data: null, error: resultCustomerModel.error });
       return;
     }
-
+    const data = {
+      id_user: resultUserModel.data.id,
+      id_company: resultCompanyModel.data.id,
+      rut: resultCompanyModel.data.rut,
+      companyName: resultCompanyModel.data.companyName,
+      legalRepresentative: resultCompanyModel.data.legalRepresentative,
+      line: resultCompanyModel.data.line,
+      email: resultCompanyModel.data.email,
+      phone: resultCompanyModel.data.phone,
+      address: resultCompanyModel.data.address,
+      district: resultCompanyModel.data.district
+    }
     res
       .status(200)
-      .json({ sucess: true, data: resultCustomerModel.data, error: false });
+      .json({ sucess: true, data: data, error: false });
     return;
   }
 
@@ -135,7 +147,7 @@ const create = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultPersonModel.error });
       return;
-    };
+    }
 
     const resultUserModel = await UserModel.create(
       resultPersonModel.data.id,
@@ -151,7 +163,7 @@ const create = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultUserModel.error });
       return;
-    };
+    }
 
     const resultCustomerModel = await CustomerModel.create(
       type,
@@ -168,13 +180,25 @@ const create = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultCustomerModel.error });
       return;
-    };
+    }
 
+    const data = {
+      id_user: resultUserModel.data.id,
+      id_person: resultPersonModel.data.id,
+      rut: resultPersonModel.data.rut,
+      name: resultPersonModel.data.name,
+      paternalLastName: resultPersonModel.data.paternalLastName,
+      maternalLastName: resultPersonModel.data.maternalLastName,
+      email: resultPersonModel.data.email,
+      phone: resultPersonModel.data.phone,
+      address: resultPersonModel.data.address,
+      district: resultPersonModel.data.district
+    }
     res
       .status(200)
-      .json({ sucess: true, data: resultCustomerModel.data, error: false });
+      .json({ sucess: true, data: data, error: false });
     return;
-  };
+  }
 
   res
     .status(200)
@@ -208,12 +232,12 @@ const update = async (req: any, res: any) => {
       .status(500)
       .json({ sucess: false, data: null, error: resultCustomerModel.error });
     return;
-  };
+  }
 
   if (!resultCustomerModel.data) {
     res.status(200).json({ sucess: false, data: null, error: true });
     return;
-  };
+  }
 
   if (resultCustomerModel.data.type == "c") {
     const resultCompanyModel = await CompanyModel.update(
@@ -237,15 +261,15 @@ const update = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultCompanyModel.error });
       return;
-    };
+    }
 
     res
       .status(200)
       .json({ sucess: true, data: resultCompanyModel.data, error: false });
     return;
-  };
+  }
 
-  if (resultCustomerModel.data.type == "c") {
+  if (resultCustomerModel.data.type == "p") {
     const resultPersonModel = await PersonModel.update(
       id,
       rut,
@@ -266,13 +290,13 @@ const update = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultPersonModel.error });
       return;
-    };
+    }
 
     res
       .status(200)
       .json({ sucess: true, data: resultPersonModel.data, error: false });
     return;
-  };
+  }
 };
 
 const deleteById = async (req: any, res: any) => {
@@ -287,12 +311,12 @@ const deleteById = async (req: any, res: any) => {
       .status(500)
       .json({ sucess: false, data: null, error: resultCustomerModel.error });
     return;
-  };
+  }
 
   if (!resultCustomerModel.data) {
     res.status(200).json({ sucess: false, data: null, error: true });
     return;
-  };
+  }
 
   if (resultCustomerModel.data.type == "p") {
     const resultPersonModel = await PersonModel.deleteById(id);
@@ -306,7 +330,7 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultPersonModel.error });
       return;
-    };
+    }
 
     const resultUserModel = await UserModel.deleteById(id);
     if (!resultUserModel.sucess) {
@@ -319,7 +343,7 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultUserModel.error });
       return;
-    };
+    }
 
     const resultCustomer = await CustomerModel.deleteById(id);
     if (!resultCustomer.sucess) {
@@ -332,13 +356,13 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultCustomer.error });
       return;
-    };
+    }
 
     res
       .status(200)
       .json({ sucess: true, data: resultCustomer.data, error: false });
     return;
-  };
+  }
 
   if (resultCustomerModel.data.type == "c") {
     const resultCompanyModel = await CompanyModel.deleteById(id);
@@ -351,7 +375,7 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultCompanyModel.error });
       return;
-    };
+    }
 
     const resultUserModel = await UserModel.deleteById(id);
     if (!resultUserModel.sucess) {
@@ -363,7 +387,7 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultUserModel.error });
       return;
-    };
+    }
 
     const resultCustomer = await CustomerModel.deleteById(id);
     if (!resultCustomer.sucess) {
@@ -376,8 +400,8 @@ const deleteById = async (req: any, res: any) => {
         .status(500)
         .json({ sucess: false, data: null, error: resultCustomer.error });
       return;
-    };
-    
+    }
+
     res
       .status(200)
       .json({ sucess: true, data: resultCustomer.data, error: false });

@@ -1,0 +1,12 @@
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-03 15:54:33"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/p"},"timestamp":"2023-04-03 15:57:48"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-03 15:58:27"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/person/getAll"},"timestamp":"2023-04-03 15:58:37"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/d26503d7-feae-4712-a750-60fd5f062f9b"},"timestamp":"2023-04-03 17:13:06"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"company_rut_key\"","model":"company/update"},"timestamp":"2023-04-03 17:13:07"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/f30bd834-714e-433a-b0bf-b7ea68bc2386"},"timestamp":"2023-04-03 17:26:58"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/f30bd834-714e-433a-b0bf-b7ea68bc2386"},"timestamp":"2023-04-03 17:28:26"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/f30bd834-714e-433a-b0bf-b7ea68bc2386"},"timestamp":"2023-04-03 17:28:37"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f30bd834-714e-433a-b0bf-b7ea68bc2386"},"timestamp":"2023-04-03 17:28:49"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-03 17:28:59"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getById/f30bd834-714e-433a-b0bf-b7ea68bc2386"},"timestamp":"2023-04-03 17:29:27"}

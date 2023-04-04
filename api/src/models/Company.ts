@@ -1,6 +1,6 @@
 import pool from "../util/database";
 
-import { _create, _deleteById, _getAll, _update } from "../queries/company";
+import { _create, _deleteById, _getAll, _getByEmail, _update } from "../queries/company";
 
 const getAll: any = async () => {
   try {
@@ -10,6 +10,15 @@ const getAll: any = async () => {
     return { sucess: false, data: null, error: (e as Error).message };
   }
 };
+
+const getByEmail: any = async (email: string) => {
+  try {
+    const result = await pool.query(_getByEmail, [email])
+    return { sucess: true, data: result.rows, error: null };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+}
 
 const create: any = async (
   rut: string,
@@ -77,4 +86,4 @@ const deleteById: any = async (id: string) => {
   }
 };
 
-export { getAll, create, update, deleteById };
+export { getAll, create, update, deleteById , getByEmail};

@@ -5,6 +5,7 @@ import { emailSender } from "../util/email";
 
 import * as UserModel from "../models/User";
 import * as PersonModel from "../models/Person";
+import * as CompanyModel from "../models/Company"
 
 const getAll = async (req: any, res: any) => {
   const resultModel = await UserModel.getAll();
@@ -77,7 +78,9 @@ const create = async (req: any, res: any) => {
 
 const validate = async (req: any, res: any) => {
   const { email, password } = req.body;
+
   const resultPerson = await PersonModel.getByEmail(email);
+
   if (!resultPerson.sucess) {
     createLogger.error({
       model: "person/getByEmail",
@@ -89,8 +92,9 @@ const validate = async (req: any, res: any) => {
     return;
   }
 
+
   if (!resultPerson.data) {
-    res.status(200).json({ sucess: false, data: null, error: false });
+    res.status(200).json({ sucess: true, data: null, error: false });
     return;
   }
 

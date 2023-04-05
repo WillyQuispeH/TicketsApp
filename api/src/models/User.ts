@@ -5,6 +5,7 @@ import {
   _create,
   _deleteById,
   _getAll,
+  _getById,
   _validate,
 } from "../queries/user";
 
@@ -24,6 +25,15 @@ const create: any = async (person_id: string, password: string) => {
     const hash = await hashPassword(password);
     const result = await pool.query(_create, [person_id, hash]);
     return { sucess: true, data: result.rows[0], error: null };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+};
+
+const getById: any = async (id: string) => {
+  try {
+    const result = await pool.query(_getById, [id]);
+    return { sucess: true, data: result.rows[0], error: false };
   } catch (e) {
     return { sucess: false, data: null, error: (e as Error).message };
   }
@@ -58,4 +68,4 @@ const deleteById: any = async (id: string) => {
   }
 };
 
-export { getAll, create, assignPassword, validate, deleteById };
+export { getAll, create, assignPassword, validate, deleteById, getById };

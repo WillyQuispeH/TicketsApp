@@ -1,11 +1,10 @@
-
-const _getByEmail =`SELECT id, rut, name, paternallastname, maternallastname, email, phone, address, district 
+const _getByEmail = `SELECT id, rut, name, paternallastname, maternallastname, email, phone, address, district 
 FROM ticket.person
   WHERE email = $1`;
 
-const _getAll = `SELECT u.id  , person_id,rut, name, paternallastname, maternallastname,email,phone,address,district
-FROM ticket."user" u 
-  INNER JOIN ticket.person p  ON p.id  = u.person_id;`;
+const _getAll = `SELECT customer.id ,type, person_id,  rut, name, paternallastname, maternallastname, email, phone, address, district 
+FROM ticket.customer
+INNER JOIN ticket.person  ON  customer.person_id = person.id;`;
 
 const _create = `INSERT INTO ticket.person
 (rut, name, paternallastname, maternallastname, email, phone, address, district)

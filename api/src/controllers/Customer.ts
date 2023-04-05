@@ -2,13 +2,12 @@ import createLogger from "../util/logger";
 
 import * as CustomerModel from "../models/Customer";
 import * as PersonModel from "../models/Person";
-import * as UserModel from "../models/User";
 import * as CompanyModel from "../models/Company";
-
 
 const getById = async (req: any, res: any) => {
   const { id } = req.params;
   const resultModel = await CustomerModel.getById(id);
+
   if (!resultModel.sucess) {
     createLogger.error({
       model: "customer/getById",
@@ -23,19 +22,39 @@ const getById = async (req: any, res: any) => {
 };
 
 const getAll = async (req: any, res: any) => {
-  const resultModel = await CustomerModel.getAll();
-  if (!resultModel.sucess) {
+  const resultPersonModel = await PersonModel.getAll();
+  if (!resultPersonModel.sucess) {
     createLogger.error({
-      model: "customer/getAll",
-      error: resultModel.error,
+      model: "person/getAll",
+      error: resultPersonModel.error,
     });
     res
       .status(500)
-      .json({ sucess: false, data: null, error: resultModel.error });
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
 
-  res.status(200).json({ sucess: true, data: resultModel.data, error: false });
+  const resultCompanyModel = await CompanyModel.getAll();
+  if (!resultCompanyModel.sucess) {
+    createLogger.error({
+      model: "company/getAll",
+      error: resultCompanyModel.error,
+    });
+    res
+      .status(500)
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
+    return;
+  }
+
+  var data = [{}];
+  for (var i = 0; i < resultPersonModel.data.length; i++) {
+    data.push(resultPersonModel.data[i]);
+  }
+  for (var i = 0; i < resultCompanyModel.data.length; i++) {
+    data.push(resultCompanyModel.data[i]);
+  }
+  data.shift();
+  res.status(200).json({ sucess: true, data: data, error: false });
 };
 
 const create = async (req: any, res: any) => {
@@ -52,7 +71,6 @@ const create = async (req: any, res: any) => {
     phone,
     address,
     district,
-    password,
   } = req.body;
 
   if (type == "c") {
@@ -77,21 +95,6 @@ const create = async (req: any, res: any) => {
       return;
     }
 
-    const resultUserModel = await UserModel.create(
-      resultCompanyModel.data.id,
-      password
-    );
-    if (!resultUserModel.sucess) {
-      createLogger.error({
-        model: "user/create",
-        error: resultUserModel.error,
-      });
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultUserModel.error });
-      return;
-    }
-
     const resultCustomerModel = await CustomerModel.create(
       type,
       resultCompanyModel.data.id,
@@ -108,21 +111,22 @@ const create = async (req: any, res: any) => {
         .json({ sucess: false, data: null, error: resultCustomerModel.error });
       return;
     }
+
     const data = {
-      id_user: resultUserModel.data.id,
-      id_company: resultCompanyModel.data.id,
+      id: resultCustomerModel.data.id,
+      type: resultCustomerModel.data.type,
+      company_id: resultCustomerModel.data.company_id,
       rut: resultCompanyModel.data.rut,
-      companyName: resultCompanyModel.data.companyName,
-      legalRepresentative: resultCompanyModel.data.legalRepresentative,
+      companyName: resultCompanyModel.data.companyname,
+      legalRepresentative: resultCompanyModel.data.legalrepresentative,
       line: resultCompanyModel.data.line,
       email: resultCompanyModel.data.email,
       phone: resultCompanyModel.data.phone,
       address: resultCompanyModel.data.address,
-      district: resultCompanyModel.data.district
-    }
-    res
-      .status(200)
-      .json({ sucess: true, data: data, error: false });
+      district: resultCompanyModel.data.district,
+    };
+
+    res.status(200).json({ sucess: true, data: data, error: false });
     return;
   }
 
@@ -149,22 +153,6 @@ const create = async (req: any, res: any) => {
       return;
     }
 
-    const resultUserModel = await UserModel.create(
-      resultPersonModel.data.id,
-      password
-    );
-
-    if (!resultUserModel.sucess) {
-      createLogger.error({
-        model: "user/create",
-        error: resultPersonModel.error,
-      });
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultUserModel.error });
-      return;
-    }
-
     const resultCustomerModel = await CustomerModel.create(
       type,
       null,
@@ -183,23 +171,23 @@ const create = async (req: any, res: any) => {
     }
 
     const data = {
-      id_user: resultUserModel.data.id,
-      id_person: resultPersonModel.data.id,
+      id: resultCustomerModel.data.id,
+      type: resultCustomerModel.data.type,
+      person_id: resultCustomerModel.data.person_id,
       rut: resultPersonModel.data.rut,
       name: resultPersonModel.data.name,
-      paternalLastName: resultPersonModel.data.paternalLastName,
-      maternalLastName: resultPersonModel.data.maternalLastName,
+      paternalLastName: resultPersonModel.paternallastname,
+      maternalLastName: resultPersonModel.maternallastname,
       email: resultPersonModel.data.email,
       phone: resultPersonModel.data.phone,
       address: resultPersonModel.data.address,
-      district: resultPersonModel.data.district
-    }
-    res
-      .status(200)
-      .json({ sucess: true, data: data, error: false });
+      district: resultPersonModel.data.district,
+    };
+
+    res.status(200).json({ sucess: true, data: data, error: false });
     return;
   }
-
+  
   res
     .status(200)
     .json({ sucess: false, data: null, error: "type/Valor incorrecto = c/p" });
@@ -332,19 +320,6 @@ const deleteById = async (req: any, res: any) => {
       return;
     }
 
-    const resultUserModel = await UserModel.deleteById(id);
-    if (!resultUserModel.sucess) {
-      createLogger.error({
-        model: "user/deleteById",
-        error: resultUserModel.error,
-      });
-
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultUserModel.error });
-      return;
-    }
-
     const resultCustomer = await CustomerModel.deleteById(id);
     if (!resultCustomer.sucess) {
       createLogger.error({
@@ -374,18 +349,6 @@ const deleteById = async (req: any, res: any) => {
       res
         .status(500)
         .json({ sucess: false, data: null, error: resultCompanyModel.error });
-      return;
-    }
-
-    const resultUserModel = await UserModel.deleteById(id);
-    if (!resultUserModel.sucess) {
-      createLogger.error({
-        model: "user/deleteById",
-        error: resultUserModel.error,
-      });
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultUserModel.error });
       return;
     }
 

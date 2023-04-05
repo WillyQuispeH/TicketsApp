@@ -5,22 +5,24 @@ import { emailSender } from "../util/email";
 
 import * as UserModel from "../models/User";
 import * as PersonModel from "../models/Person";
-import * as CompanyModel from "../models/Company"
 
 const getAll = async (req: any, res: any) => {
-  const resultModel = await UserModel.getAll();
-  if (!resultModel.sucess) {
+  const resultUserModel = await UserModel.getAll();
+
+  if (!resultUserModel.sucess) {
     createLogger.error({
       model: "user/getAll",
-      error: resultModel.error,
+      error: resultUserModel.error,
     });
     res
       .status(500)
-      .json({ sucess: false, data: null, error: resultModel.error });
+      .json({ sucess: false, data: null, error: resultUserModel.error });
     return;
   }
 
-  res.status(200).json({ sucess: true, data: resultModel.data, error: false });
+  res
+    .status(200)
+    .json({ sucess: true, data: resultUserModel.data, error: false });
 };
 
 const create = async (req: any, res: any) => {
@@ -55,6 +57,7 @@ const create = async (req: any, res: any) => {
       .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
+
   const resultUserModel = await UserModel.create(
     resultPersonModel.data.id,
     password
@@ -71,62 +74,165 @@ const create = async (req: any, res: any) => {
     return;
   }
 
+  const data = {
+    id: resultUserModel.data.id,
+    person_id: resultUserModel.data.person_id,
+    rut: resultPersonModel.data.rut,
+    name: resultPersonModel.data.name,
+    paternalLastName: resultPersonModel.data.paternallastname,
+    maternalLastName: resultPersonModel.data.maternallastname,
+    email: resultPersonModel.data.email,
+    phone: resultPersonModel.data.phone,
+    address: resultPersonModel.data.address,
+    district: resultPersonModel.data.districts,
+  };
+
+  res.status(200).json({ sucess: true, data: data, error: false });
+};
+
+const update = async (req: any, res: any) => {
+  const { id } = req.params;
+  const {
+    rut,
+    name,
+    paternalLastName,
+    maternalLastName,
+    email,
+    phone,
+    address,
+    district,
+  } = req.body;
+  const resultPersonModel = await PersonModel.update(
+    id,
+    rut,
+    name,
+    paternalLastName,
+    maternalLastName,
+    email,
+    phone,
+    address,
+    district
+  );
+
+  if (!resultPersonModel.sucess) {
+    createLogger.error({
+      model: "person/update",
+      error: resultPersonModel.error,
+    });
+
+    res
+      .status(500)
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
+    return;
+  }
+
   res
     .status(200)
-    .json({ sucess: true, data: resultPersonModel.data.id, error: false });
+    .json({ sucess: true, data: resultPersonModel.data, error: false });
+};
+
+const deleteById = async (req: any, res: any) => {
+  const { id } = req.params;
+  const resultPersonModel = await PersonModel.deleteById(id);
+
+  if (!resultPersonModel.sucess) {
+    createLogger.error({
+      model: "person/deleteById",
+      error: resultPersonModel.error,
+    });
+    res
+      .status(500)
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
+    return;
+  }
+
+  const resultUserModel = await UserModel.deleteById(id);
+  if (!resultUserModel.sucess) {
+    createLogger.error({
+      model: "user/deleteById",
+      error: resultUserModel.error,
+    });
+
+    res
+      .status(500)
+      .json({ sucess: false, data: null, error: resultUserModel.error });
+    return;
+  }
+
+  res
+    .status(200)
+    .json({ sucess: true, data: resultUserModel.data, error: false });
 };
 
 const validate = async (req: any, res: any) => {
   const { email, password } = req.body;
+  const resultPersonModel = await PersonModel.getByEmail(email);
 
-  const resultPerson = await PersonModel.getByEmail(email);
-
-  if (!resultPerson.sucess) {
+  if (!resultPersonModel.sucess) {
     createLogger.error({
       model: "person/getByEmail",
-      error: resultPerson.error,
+      error: resultPersonModel.error,
     });
     res
       .status(500)
-      .json({ sucess: false, data: null, error: resultPerson.error });
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
 
-
-  if (!resultPerson.data) {
-    res.status(200).json({ sucess: true, data: null, error: false });
+  if (!resultPersonModel.data) {
+    res.status(200).json({ sucess: true, data: false, error: false });
     return;
   }
 
-  const isValid = await UserModel.validate(resultPerson.data.id, password);
+  const isValid = await UserModel.validate(resultPersonModel.data.id, password);
   if (!isValid.sucess) {
     createLogger.error({
       model: "user/validate",
-      error: resultPerson.error,
+      error: isValid.error,
     });
 
     res.status(500).json({ sucess: false, data: null, error: isValid.error });
     return;
   }
 
-  res.status(200).json({ sucess: true, data: isValid.isValid, error: false });
+  if (isValid.isValid) {
+    const resultUserModel = await UserModel.getById(resultPersonModel.data.id);
+
+    const data = {
+      id: resultUserModel.data.id,
+      person_id: resultUserModel.data.person_id,
+      rut: resultPersonModel.data.rut,
+      name: resultPersonModel.data.name,
+      paternalLastName: resultPersonModel.data.paternallastname,
+      maternalLastName: resultPersonModel.data.maternallastname,
+      email: resultPersonModel.data.email,
+      phone: resultPersonModel.data.phone,
+      address: resultPersonModel.data.address,
+      district: resultPersonModel.data.districts,
+    };
+
+    res.status(200).json({ sucess: true, data: data, error: false });
+    return;
+  }
+
+  res.status(200).json({ sucess: true, data: null, error: false });
 };
 
 const recoveryPassword = async (req: any, res: any) => {
   const { email } = req.body;
-  const resultPerson = await PersonModel.getByEmail(email);
-  if (!resultPerson.sucess) {
+  const resultPersonModel = await PersonModel.getByEmail(email);
+  if (!resultPersonModel.sucess) {
     createLogger.error({
       model: "user/getByEmail",
-      error: resultPerson.error,
+      error: resultPersonModel.error,
     });
     res
       .status(500)
-      .json({ sucess: false, data: null, error: resultPerson.error });
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
 
-  if (!resultPerson.data) {
+  if (!resultPersonModel.data) {
     res.status(200).json({ sucess: true, data: null, error: false });
     return;
   }
@@ -134,7 +240,7 @@ const recoveryPassword = async (req: any, res: any) => {
   const newPassword = generatePassword();
 
   const resulAssingPassword = await UserModel.assignPassword(
-    resultPerson.data.id,
+    resultPersonModel.data.id,
     newPassword
   );
   if (!resulAssingPassword.sucess) {
@@ -149,9 +255,9 @@ const recoveryPassword = async (req: any, res: any) => {
     return;
   }
 
-  const emailSent = emailSender(resultPerson.data, newPassword);
+  const emailSent = emailSender(resultPersonModel.data, newPassword);
 
   res.status(200).json({ sucess: true, data: emailSent, error: false });
 };
 
-export { getAll, create, validate, recoveryPassword };
+export { getAll, create, validate, recoveryPassword, update, deleteById };

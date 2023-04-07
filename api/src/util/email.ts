@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "willypruebas6@gmail.com",
-    pass: "spboeojerncfkvoo", 
+    pass: "qflwbnthttjzmlva", 
   },
   tls: {
     rejectUnauthorized: false,
@@ -18,16 +18,21 @@ transporter.verify().then(() => {
 });
 
 const emailSender = async (person: any, newPassword: string) => {
-  const EmailSent = await transporter.sendMail({
-    from: '"Willy Quispe " <willypruebas6@gmail.com>',
-    to: person.email,
-    subject: "Hola: " + person.name + " " + person.paternallastname,
-    html:
+  try {
+    const EmailSent = await transporter.sendMail({
+      from: 'willypruebas6@gmail.com',
+      to: 'willyabadquispehuamani@gmail.com',
+      subject: 'Hola: ' + person.name + ' ' + person.paternallastname,
+      html:
       `<h1>Recovery password</h1></br>
       <h2>Se le asigno una nueva contraseña</h></br>
       <b>New password: ` + newPassword +`</b>`,
-  });
-  return EmailSent;
+    });
+    
+    return { sucess: true, data: EmailSent, error: false };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
 };
 
 export { emailSender };

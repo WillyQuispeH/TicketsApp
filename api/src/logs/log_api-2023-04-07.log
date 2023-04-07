@@ -1,0 +1,77 @@
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-06 18:11:08"}
+{"level":"info","message":{"body":{"email":"willy@gmail.com","password":"95790234"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:11:50"}
+{"level":"info","message":{"body":{"email":"willy@gmail.com","password":"957902342"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:12:23"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-06 18:14:35"}
+{"level":"info","message":{"body":{"address":"Santiago","district":"San Lorenzo","email":"Samd@gmail.com","maternalLastName":"Apaza","name":"Samd","password":"957902342","paternalLastName":"Vilca","phone":"+569 4988 5135","rut":"95790214-5"},"method":"POST","params":"","query":"","url":"/api/user/create"},"timestamp":"2023-04-06 18:39:37"}
+{"level":"info","message":{"body":{"email":"Samd@gmail.com","password":"957902342"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:41:28"}
+{"level":"info","message":{"body":{"email":"Samd@gail.com","password":"957902342"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:42:21"}
+{"level":"info","message":{"body":{"email":"Samd@gail.com","password":"957902342"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:43:02"}
+{"level":"info","message":{"body":{"email":"Samd@gmail.com","password":"95790234"},"method":"POST","params":"","query":"","url":"/api/user/validate"},"timestamp":"2023-04-06 18:43:13"}
+{"level":"info","message":{"body":{"email":"willypruebas6@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:43:57"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/user/update/656b843f-5a27-4451-8dca-2ecd978c41ea"},"timestamp":"2023-04-06 18:44:50"}
+{"level":"error","message":{"error":"duplicate key value violates unique constraint \"person_rut_key\"","model":"person/update"},"timestamp":"2023-04-06 18:44:50"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/user/update/ce478745-0541-40f1-b846-c929e5221ca5"},"timestamp":"2023-04-06 18:45:18"}
+{"level":"info","message":{"body":{"email":"willypruebas6@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:45:25"}
+{"level":"info","message":{"body":{"email":"willypruebas6@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:48:41"}
+{"level":"info","message":{"body":{"email":"willypruebas6@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:50:56"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/user/update/ce478745-0541-40f1-b846-c929e5221ca5"},"timestamp":"2023-04-06 18:51:04"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:52:00"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:57:37"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 18:58:43"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:00:15"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:01:58"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:04:36"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:07:49"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. zj18-20020a0568716c9200b00183f77dcdadsm783508oab.33 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:08:07"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:12:09"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. fb5-20020a0568083a8500b00386b8b1448dsm1167161oib.34 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:12:26"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:14:26"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:16:04"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. x17-20020a9d6291000000b006884c42a38asm1211384otk.41 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:16:22"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:17:39"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. v16-20020a056830141000b0069f951899e1sm1211354otp.24 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:17:58"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:50:47"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. zd19-20020a056871279300b0017703b8a5f8sm1149733oab.49 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:51:04"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 19:54:49"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. uc12-20020a0568714b8c00b0017e7052ed84sm1172909oab.41 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 19:55:24"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:00:10"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. q6-20020a9d6646000000b006a3170fe3efsm1234642otm.27 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 20:00:47"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:52:18"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. en12-20020a056808394c00b003898ebb8be0sm1230012oib.48 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 20:52:40"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamai@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:52:47"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:53:47"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. yv18-20020a05687c229200b00177be9585desm1245932oab.1 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 20:54:11"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:55:17"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. d8-20020a0568301b6800b0069f153bb37asm1239198ote.62 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 20:55:40"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:58:15"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. r30-20020a4a9661000000b00525240c6149sm1182165ooi.31 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 20:58:47"}
+{"level":"info","message":{"body":{"email":"willyabadquispehuamani@gmail.com"},"method":"POST","params":"","query":"","url":"/api/user/recoveryPassword"},"timestamp":"2023-04-06 20:59:54"}
+{"level":"error","message":{"error":"Data command failed: 550 5.4.5 Daily user sending quota exceeded. w124-20020acadf82000000b00383ef567cfdsm1275834oig.21 - gsmtp","model":"emailSender"},"timestamp":"2023-04-06 21:00:22"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/user/update/ce478745-0541-40f1-b846-c929e5221ca5"},"timestamp":"2023-04-06 21:02:22"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/user/update/ce478745-0541-40f1-b846-c929e5221ca5"},"timestamp":"2023-04-06 21:04:27"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-06 21:55:29"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/user/deleteById/656b843f-5a27-4451-8dca-2ecd978c41ea"},"timestamp":"2023-04-06 21:55:48"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/user/deleteById/656b843f-5a27-4451-8dca-2ed978c41ea"},"timestamp":"2023-04-06 21:55:55"}
+{"level":"error","message":{"error":"invalid input syntax for type uuid: \"656b843f-5a27-4451-8dca-2ed978c41ea\"","model":"person/deleteById"},"timestamp":"2023-04-06 21:55:55"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/user/deleteById/656b843f-5a27-4451-8dca-2ecd978c41ea"},"timestamp":"2023-04-06 21:56:03"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 21:56:23"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/711d2eba-18a1-4001-bdf3-e9846f82199f"},"timestamp":"2023-04-06 21:57:10"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 21:57:16"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/e5763f70-dea5-4be4-b0d6-6260f841eddc"},"timestamp":"2023-04-06 21:57:31"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 21:57:36"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/357378d7-3b4b-4a91-ae04-d97c7cdb8271"},"timestamp":"2023-04-06 21:57:50"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 21:57:54"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/c"},"timestamp":"2023-04-06 21:58:35"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/p"},"timestamp":"2023-04-06 21:59:45"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 21:59:52"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/o"},"timestamp":"2023-04-06 22:00:01"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/87239dcf-3e64-4874-a8ae-321addc7d026"},"timestamp":"2023-04-06 22:01:20"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/87239dcf-3e64-4874-a8ae-321addc7d026"},"timestamp":"2023-04-06 22:01:31"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 22:02:02"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/ff7d4959-8925-4b32-b86e-9c3f7130f60f"},"timestamp":"2023-04-06 22:03:02"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/ff7d4959-8925-4b32-b86e-9c3f7130f60f"},"timestamp":"2023-04-06 22:04:48"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/update/87239dcf-3e64-4874-a8ae-321addc7d026"},"timestamp":"2023-04-06 22:05:45"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/1d4e5a40-1169-48a4-9161-bf8bef8c6b32"},"timestamp":"2023-04-06 22:06:10"}
+{"level":"info","message":{"body":"","method":"DELETE","params":{},"query":"","url":"/api/customer/deleteById/c2cc7696-d6c2-430a-bf0c-b13681445497"},"timestamp":"2023-04-06 22:06:34"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/customer/getAll"},"timestamp":"2023-04-06 22:06:38"}
+{"level":"info","message":{"body":"","method":"PUT","params":{},"query":"","url":"/api/customer/create/"},"timestamp":"2023-04-06 22:09:19"}

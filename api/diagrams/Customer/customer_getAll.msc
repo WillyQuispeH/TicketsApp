@@ -1,0 +1,21 @@
+msc {
+  customerRoute [label=" User route"],
+  customerController [label="User Controller"],
+  companyModel [ label = "Company Model"],
+  personModel [ label = "Person Model"],
+  database [label="Database"];
+
+
+  customerRoute >> customerController [ label = "getAll"];
+  customerController >> personModel [label = "getAll()"];
+  personModel >> database [ label = "pool.query(...)"];
+  database >> database [ label = "SELECT(...)"];
+  database >> personModel [ label = "customer"];
+  personModel >> customerController [ label = "customer"];
+  customerController >> companyModel[label = "getAll()"];
+  companyModel >> database[ label = "pool.query(...)"];
+  database >> database [ label = "SELECT(...)"];
+  database >> companyModel [ label = "customer"];
+  companyModel >> customerController [ label = "customer"];
+  customerController >> customerRoute [ label = "dataCustomer"];
+}

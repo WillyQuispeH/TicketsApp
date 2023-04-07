@@ -1,0 +1,22 @@
+msc {
+  customerRoute [label=" User route"],
+  customerController [label="User Controller"],
+  companyModel_personModel  [ label = "Company Model / Person Model"],
+  customerModel [label="Customer Model"],
+  database [label="Database"];
+
+
+customerRoute >> customerController [ label ="update"];
+customerController >> customerModel [ label = "getById"];
+customerModel >> database [label = "pool.query(...)"];
+database >> database [label = "SELECT(...)"];
+database >> customerModel [label = "customer"];
+customerModel >> customerController [label = "customer"];
+customerController >> companyModel_personModel  [ label = "update()"];
+companyModel_personModel  >> database [ label = "pool.query(...)"];
+database >> database [ label = "UPDATE(...)"];
+database >> companyModel_personModel  [ label = "company / person"];
+companyModel_personModel  >> customerController [ label = "company / person"];
+customerController >> customerRoute [ label = "customer"];
+  
+}

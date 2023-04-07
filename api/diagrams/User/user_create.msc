@@ -1,0 +1,25 @@
+
+  msc {
+  userRoute [label=" User route"],
+  userController [label="User Controller"],
+  personModel [label="Person Model"],
+  userModel [label="User Model"],
+  util [label="Util"],
+  database [label="Database"];
+
+  userRoute >>userController [label="create"];
+  userController >> personModel [label="create(Person)"];
+  personModel >> database [label = "pool.query(...)"];
+  database >> database [ label ="INSERT INTO(...)"];
+  database >> personModel[ label ="Person"];
+  personModel >> userController [ label="Person"];
+  userController >> userModel [ label = "create(User)"];
+  userModel >> util [label ="hashPassword(password)"];
+  util >> util[label="HASH"];
+  util >> userModel [label="hash"];
+  userModel >> database[ label="pool.query(...)"];
+  database >> database[label ="INSERT INTO(...)"];
+  database >> userModel [ label="user"];
+  userModel >> userController[label="user"];
+  userController >> userRoute[label="dataUser"];
+  }

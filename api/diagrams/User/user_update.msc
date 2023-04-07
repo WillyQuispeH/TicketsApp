@@ -1,0 +1,14 @@
+msc {
+  userRoute [label=" User route"],
+  userController [label="User Controller"],
+  personModel [label="Person Model"],
+  database [label="Database"];
+
+  userRoute >> userController [label="update"];
+  userController>> personModel [label ="update(Person)"];
+  personModel >> database [label="pool.query(...)"];
+  database >> database [label = "UPDATE(...)"];
+  database >> personModel [label = "person"];
+  personModel >> userController [label = "person"];
+  userController >> userRoute [label = "person"];
+}

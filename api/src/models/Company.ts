@@ -22,8 +22,8 @@ const getByEmail: any = async (email: string) => {
 
 const create: any = async (
   rut: string,
-  companyname: string,
-  legalrepresentative: string,
+  companyName: string,
+  legalRepresentative: string,
   line: string,
   email: string,
   phone: string,
@@ -33,8 +33,8 @@ const create: any = async (
   try {
     const result = await pool.query(_create, [
       rut,
-      companyname,
-      legalrepresentative,
+      companyName,
+      legalRepresentative,
       line,
       email,
       phone,
@@ -50,8 +50,8 @@ const create: any = async (
 const update: any = async (
   id: string,
   rut: string,
-  companyname: string,
-  legalrepresentative: string,
+  companyName: string,
+  legalRepresentative: string,
   line: string,
   email: string,
   phone: string,
@@ -62,8 +62,8 @@ const update: any = async (
     const result = await pool.query(_update, [
       id,
       rut,
-      companyname,
-      legalrepresentative,
+      companyName,
+      legalRepresentative,
       line,
       email,
       phone,

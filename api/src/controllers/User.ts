@@ -125,10 +125,24 @@ const update = async (req: any, res: any) => {
       .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
+const resultUserModel = await UserModel.getById(resultPersonModel.data.id)
+
+  const data = {
+    id: resultUserModel.data.id,
+    person_id: resultUserModel.data.person_id,
+    rut: resultPersonModel.data.rut,
+    name: resultPersonModel.data.name,
+    paternalLastName: resultPersonModel.data.paternallastname,
+    maternalLastName: resultPersonModel.data.maternallastname,
+    email: resultPersonModel.data.email,
+    phone: resultPersonModel.data.phone,
+    address: resultPersonModel.data.address,
+    district: resultPersonModel.data.districts,
+  };
 
   res
     .status(200)
-    .json({ sucess: true, data: resultPersonModel.data, error: false });
+    .json({ sucess: true, data: data, error: false });
 };
 
 const deleteById = async (req: any, res: any) => {
@@ -180,7 +194,7 @@ const validate = async (req: any, res: any) => {
   }
 
   if (!resultPersonModel.data) {
-    res.status(200).json({ sucess: true, data: false, error: false });
+    res.status(200).json({ sucess: false, data: null, error: false });
     return;
   }
 
@@ -215,7 +229,24 @@ const validate = async (req: any, res: any) => {
     return;
   }
 
-  res.status(200).json({ sucess: true, data: null, error: false });
+  res.status(200).json({ sucess: false, data: null, error: false });
+};
+
+const assignPassword = async (req: any, res: any) => {
+  const { id } = req.params;
+  const { password } = req.body;
+
+  const result = await UserModel.assignPassword(id, password);
+  if (!result.sucess) {
+    createLogger.error({
+      model: "user/assingPassword",
+      error: result.error,
+    });
+
+    res.status(500).json({ sucess: false, data: null, error: result.error });
+    return;
+  }
+  res.status(200).json({ sucess: true, data: result, error: false });
 };
 
 const recoveryPassword = async (req: any, res: any) => {
@@ -254,10 +285,42 @@ const recoveryPassword = async (req: any, res: any) => {
       .json({ sucess: false, data: null, error: resulAssingPassword.error });
     return;
   }
+  const emailSent = await emailSender(resultPersonModel.data, newPassword);
+  if (!emailSent.sucess) {
+    createLogger.error({
+      model: "emailSender",
+      error: emailSent.error,
+    });
 
-  const emailSent = emailSender(resultPersonModel.data, newPassword);
+    res.status(500).json({ sucess: false, data: null, error: emailSent.error });
+    return;
+  }
 
-  res.status(200).json({ sucess: true, data: emailSent, error: false });
+  const resultUserModel = await UserModel.getById(resultPersonModel.data.id);
+  const data = {
+    id: resultUserModel.data.id,
+    person_id: resultUserModel.data.person_id,
+    rut: resultPersonModel.data.rut,
+    name: resultPersonModel.data.name,
+    paternalLastName: resultPersonModel.data.paternallastname,
+    maternalLastName: resultPersonModel.data.maternallastname,
+    email: resultPersonModel.data.email,
+    phone: resultPersonModel.data.phone,
+    address: resultPersonModel.data.address,
+    district: resultPersonModel.data.districts,
+  };
+  
+  emailSent.sucess
+    ? res.status(200).json({ sucess: true, data: data, error: false })
+    : res.status(200).json({ sucess: false, data: null, error: true });
 };
 
-export { getAll, create, validate, recoveryPassword, update, deleteById };
+export {
+  getAll,
+  create,
+  validate,
+  recoveryPassword,
+  update,
+  deleteById,
+  assignPassword,
+};

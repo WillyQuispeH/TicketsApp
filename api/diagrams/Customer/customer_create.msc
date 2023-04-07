@@ -1,0 +1,23 @@
+msc {
+  customerRoute [label=" User route"],
+  customerController [label="User Controller"],
+  companyModel_personModel [ label = "Company Model / Person Model"],
+  customerModel [label="Customer Model"],
+  database [label="Database"];
+
+
+customerRoute >> customerController [ label ="create"];
+customerController >> companyModel_personModel  [label = "create()"];
+companyModel_personModel  >> database [ label = " pool.query(...)"];
+database >> database [ label = "INSERT INTO(...)"];
+database >> companyModel_personModel  [ label = "company / person"];
+companyModel_personModel  >> customerController [label = "company / person"];
+customerController >> customerModel [label = "create()"];
+customerModel >> database [ label = "pool.query(...)"];
+database >> database [ label = "INSERT INTO(...)"];
+database >> customerModel [label = "customer"];
+customerModel >> customerController [label = "customer"];
+customerController >> customerRoute [label = "dataCustomer"];
+
+  
+}

@@ -21,8 +21,6 @@ class App {
   }
   routes() {
     this.server.use("/api/user", auth, reqLogger, routes.UserRouter);
-    this.server.use("/api/person", auth, reqLogger, routes.PersonRouter);
-    this.server.use("/api/company", auth, reqLogger, routes.CompanyRouter);
     this.server.use("/api/customer", auth, reqLogger, routes.CustomerRouter);
   }
 }

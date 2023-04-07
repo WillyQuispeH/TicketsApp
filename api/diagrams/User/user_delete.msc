@@ -1,0 +1,20 @@
+msc {
+  userRoute [label=" User route"],
+  userController [label="User Controller"],
+  personModel [label = "Person Model"],
+  userModel[label="User Model"],
+  database [label="Database"];
+
+  userRoute >> userController [label="deleteById"];
+  userController>> personModel [label ="deleteById(...)"];
+  personModel >> database [label = "pool.query(...)"];
+  database >> database [ label = "DELETE(...)"];
+  database >> personModel [ label = "rows[1]"];
+  personModel >> userController [label = "rows[1]"];
+  userController  >> userModel [ label = "deleteById(...)" ];
+  userModel >> database [ label = "pool.query(...)"];
+  database>> database [ label = "DELETE (...)"];
+  database >> userModel [ label = "rows[1]"];
+  userModel >> userController [ label = "rows [1]"];
+  userController >> userRoute[ label = "rows"];
+}

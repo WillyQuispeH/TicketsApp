@@ -18,6 +18,7 @@ const getById = async (req: any, res: any) => {
       .json({ sucess: false, data: null, error: resultModel.error });
     return;
   }
+
   res.status(200).json({ sucess: true, data: resultModel.data, error: false });
 };
 
@@ -46,14 +47,11 @@ const getAll = async (req: any, res: any) => {
     return;
   }
 
-  var data = [{}];
-  for (var i = 0; i < resultPersonModel.data.length; i++) {
-    data.push(resultPersonModel.data[i]);
-  }
-  for (var i = 0; i < resultCompanyModel.data.length; i++) {
-    data.push(resultCompanyModel.data[i]);
-  }
-  data.shift();
+  const data = {
+    person: resultPersonModel.data,
+    company: resultCompanyModel.data,
+  };
+
   res.status(200).json({ sucess: true, data: data, error: false });
 };
 
@@ -187,7 +185,7 @@ const create = async (req: any, res: any) => {
     res.status(200).json({ sucess: true, data: data, error: false });
     return;
   }
-  
+
   res
     .status(200)
     .json({ sucess: false, data: null, error: "type/Valor incorrecto = c/p" });
@@ -251,9 +249,21 @@ const update = async (req: any, res: any) => {
       return;
     }
 
-    res
-      .status(200)
-      .json({ sucess: true, data: resultCompanyModel.data, error: false });
+    const data = {
+      id: resultCustomerModel.data.id,
+      type: resultCustomerModel.data.type,
+      company_id: resultCustomerModel.data.company_id,
+      rut: resultCompanyModel.data.rut,
+      companyName: resultCompanyModel.data.companyname,
+      legalRepresentative: resultCompanyModel.data.legalrepresentative,
+      line: resultCompanyModel.data.line,
+      email: resultCompanyModel.data.email,
+      phone: resultCompanyModel.data.phone,
+      address: resultCompanyModel.data.address,
+      district: resultCompanyModel.data.district,
+    };
+
+    res.status(200).json({ sucess: true, data: data, error: false });
     return;
   }
 
@@ -280,9 +290,21 @@ const update = async (req: any, res: any) => {
       return;
     }
 
-    res
-      .status(200)
-      .json({ sucess: true, data: resultPersonModel.data, error: false });
+    const data = {
+      id: resultCustomerModel.data.id,
+      type: resultCustomerModel.data.type,
+      person_id: resultCustomerModel.data.person_id,
+      rut: resultPersonModel.data.rut,
+      name: resultPersonModel.data.name,
+      paternalLastName: resultPersonModel.paternallastname,
+      maternalLastName: resultPersonModel.maternallastname,
+      email: resultPersonModel.data.email,
+      phone: resultPersonModel.data.phone,
+      address: resultPersonModel.data.address,
+      district: resultPersonModel.data.district,
+    };
+
+    res.status(200).json({ sucess: true, data: data, error: false });
     return;
   }
 };

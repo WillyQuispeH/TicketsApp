@@ -1,0 +1,25 @@
+msc {
+  userRoute [label=" User route"],
+  userController [label="User Controller"],
+  personModel [ label = "Person Model"],
+  userModel[label="User Model"],
+  util [ label = "Utils"],
+  database [label="Database"];
+
+  userRoute >> userController [label="validate"];
+  userController >> personModel [label = "getByEmail()"];
+  personModel >> database [ label = "pool.query(...)"];
+  database >> database [ label = "SELECT(...)"];
+  database >> personModel [ label = "Person"];
+  personModel >> userController [ label = "Person"];
+  userController >> userModel  [ label = "validate()"];
+  userModel >> database [ label = "pool.query(...)"];
+  database >> database [label = "SELECT(...)"];
+  database >> userModel [label = "user"];
+  userModel >> util [ label = "passwordCompare(...)"];
+  util >> util [ label = "COMPARE"];
+  util >> userModel [ label = "isValid"];
+  userModel >> userController [ label = "isValid"];
+  userController >> userRoute [ label = "dataUser"];
+ 
+}

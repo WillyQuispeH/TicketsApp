@@ -1,0 +1,14 @@
+msc {
+  userRoute [label=" User route"],
+  userController [label="User Controller"],
+  userModel[label="User Model"],
+  database [label="Database"];
+
+  userRoute >> userController [label="getAll"];
+  userController>> userModel [label ="getAll()"];
+  userModel >> database [label="pool.query(...)"];
+  database >> database [label = "SELECT(...)"];
+  database >> userModel [label = "users"];
+  userModel >> userController [label = "users"];
+  userController >> userRoute [label = "users"];
+}

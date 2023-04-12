@@ -35,6 +35,7 @@ type userState = {
   assignPassword: (id: string, password: string) => void;
   validate: (email: string, password: string) => void;
   recoveryPassword: (email: string) => void;
+  getById:(id:string) =>void;
 };
 
 const initData = {
@@ -75,6 +76,7 @@ export const userStore = create<userState>((set, get) => ({
         isError: false,
         error: "",
       }));
+
     } catch (e) {
       set((state) => ({
         ...state,
@@ -151,8 +153,7 @@ export const userStore = create<userState>((set, get) => ({
         isError: false,
         error: "",
       }));
-      const { data } = await apiInstance.put("/user/update/:id", {
-        id,
+      const { data } = await apiInstance.put("/user/update/"+id, {
         rut,
         name,
         paternalLastName,
@@ -185,9 +186,7 @@ export const userStore = create<userState>((set, get) => ({
         isError: false,
         error: "",
       }));
-      const { data } = await apiInstance.delete("/user/deleteById/:id", {
-        params: id,
-      });
+      const { data } = await apiInstance.delete("/user/deleteById/"+id);
 
       set((state) => ({
         ...state,
@@ -244,7 +243,6 @@ export const userStore = create<userState>((set, get) => ({
         isError: false,
         error: "",
       }));
-
       const { data } = await apiInstance.post("/user/validate", {
         email,
         password,
@@ -303,4 +301,33 @@ export const userStore = create<userState>((set, get) => ({
       }));
     }
   },
+  getById : async (id:string)=>{
+    try {
+      set((state) => ({
+        ...state,
+        isLoading: true,
+        isError: false,
+        error: "",
+      }));
+
+      const { data } = await apiInstance.get("/user/getById/:id", {
+        params:id
+      });
+      
+      set((state) => ({
+        ...state,
+        isLoading: false,
+        isError: false,
+        error: "",
+      }));
+      return data.data;
+    } catch (e) {
+      set((state) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        error: (e as Error).message,
+      }));
+    }
+  }
 }));

@@ -1,4 +1,4 @@
-export interface ICustomerPerson {
+export interface IPerson {
   id: string;
   type: string;
   person_id: string;
@@ -10,9 +10,9 @@ export interface ICustomerPerson {
   phone: string;
   address: string;
   district: string;
-};
+}
 
-export interface ICustomerCompany {
+export interface ICompany {
   id: string;
   type: string;
   company_id: string;

@@ -4,7 +4,7 @@ const useCustomer = () => {
   const {
     customerCompany,
     customerPersona,
-    list: listCustomer,
+    list: customerList,
     isLoading: isLoadingCustomer,
     isError: isErrorCustomer,
     error: errorCustomer,
@@ -27,7 +27,7 @@ const useCustomer = () => {
   return {
     customerCompany,
     customerPersona,
-    listCustomer,
+    customerList,
     isLoadingCustomer,
     isErrorCustomer,
     errorCustomer,

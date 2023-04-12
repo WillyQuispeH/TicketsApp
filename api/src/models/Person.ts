@@ -5,9 +5,19 @@ import {
   _deleteById,
   _getAll,
   _getByEmail,
+  _getById,
   _update,
 } from "../queries/person";
 
+
+const getById :any = async (id:string)=>{
+  try {
+    const result = await pool.query(_getById, [id]);
+    return { sucess: true, data: result.rows[0], error: false };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+};
 
 const getByEmail: any = async (email: string) => {
   try {
@@ -94,4 +104,4 @@ const deleteById: any = async (id: string) => {
   }
 };
 
-export { getAll, create, update, deleteById, getByEmail };
+export { getAll, create, update, deleteById, getByEmail , getById};

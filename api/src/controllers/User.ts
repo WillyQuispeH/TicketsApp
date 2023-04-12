@@ -6,6 +6,25 @@ import { emailSender } from "../util/email";
 import * as UserModel from "../models/User";
 import * as PersonModel from "../models/Person";
 
+const getById = async (req: any, res: any) => {
+  const { id } = req.params;
+  const resultPersonModel = await PersonModel.getById(id);
+  if (!resultPersonModel.sucess) {
+    createLogger.error({
+      model: "user/getAll",
+      error: resultPersonModel.error,
+    });
+    res
+      .status(500)
+      .json({ sucess: false, data: null, error: resultPersonModel.error });
+    return;
+  }
+
+  res
+    .status(200)
+    .json({ sucess: true, data: resultPersonModel.data, error: false });
+};
+
 const getAll = async (req: any, res: any) => {
   const resultUserModel = await UserModel.getAll();
 
@@ -125,7 +144,7 @@ const update = async (req: any, res: any) => {
       .json({ sucess: false, data: null, error: resultPersonModel.error });
     return;
   }
-const resultUserModel = await UserModel.getById(resultPersonModel.data.id)
+  const resultUserModel = await UserModel.getById(resultPersonModel.data.id);
 
   const data = {
     id: resultUserModel.data.id,
@@ -140,9 +159,7 @@ const resultUserModel = await UserModel.getById(resultPersonModel.data.id)
     district: resultPersonModel.data.districts,
   };
 
-  res
-    .status(200)
-    .json({ sucess: true, data: data, error: false });
+  res.status(200).json({ sucess: true, data: data, error: false });
 };
 
 const deleteById = async (req: any, res: any) => {
@@ -309,7 +326,7 @@ const recoveryPassword = async (req: any, res: any) => {
     address: resultPersonModel.data.address,
     district: resultPersonModel.data.districts,
   };
-  
+
   emailSent.sucess
     ? res.status(200).json({ sucess: true, data: data, error: false })
     : res.status(200).json({ sucess: false, data: null, error: true });
@@ -323,4 +340,5 @@ export {
   update,
   deleteById,
   assignPassword,
+  getById,
 };

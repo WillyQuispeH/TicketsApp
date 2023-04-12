@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import apiInstance from "@/util/api";
-import { ICustomerPerson, ICustomerCompany } from "@/interfaces/Customer";
+import { IPerson, ICompany } from "@/interfaces/Customer";
 
 type customerState = {
-  customerCompany: ICustomerCompany;
-  customerPerson: ICustomerPerson;
+  customerCompany: ICompany;
+  customerPerson: IPerson;
   list: [];
   isLoading: boolean;
   isError: boolean;

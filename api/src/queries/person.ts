@@ -4,7 +4,7 @@ FROM ticket.person
 
 const _getAll = `SELECT customer.id ,type, person_id,  rut, name, paternallastname, maternallastname, email, phone, address, district 
 FROM ticket.customer
-INNER JOIN ticket.person  ON  customer.person_id = person.id;`;
+INNER JOIN ticket.person  ON  customer.person_id = person.id WHERE customer."isActive"= true;`;
 
 const _create = `INSERT INTO ticket.person
 (rut, name, paternallastname, maternallastname, email, phone, address, district)
@@ -27,4 +27,8 @@ const _update = `UPDATE ticket.person
 
 const _deleteById = `DELETE FROM ticket.person WHERE id = $1;`;
 
-export { _getAll, _create, _update, _deleteById, _getByEmail };
+const _getById = `SELECT u.id , u.person_id, rut, name, paternallastname, maternallastname, email, phone, address, district 
+FROM ticket.user u
+  INNER JOIN ticket.person  ON  u.person_id = $1;`;
+
+export { _getAll, _create, _update, _deleteById, _getByEmail , _getById};

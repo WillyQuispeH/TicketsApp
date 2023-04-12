@@ -1,6 +1,6 @@
 const _getAll = `SELECT customer.id ,type, company_id, rut, companyname, legalrepresentative, line, email, phone, address, district
 FROM ticket.customer
-INNER JOIN ticket.company  ON  customer.company_id = company.id ; `;
+INNER JOIN ticket.company  ON  customer.company_id = company.id WHERE customer."isActive"= true; `;
 
 const _create = `INSERT INTO ticket.company 
 ( rut, companyname, legalrepresentative, line, email, phone, address, district)

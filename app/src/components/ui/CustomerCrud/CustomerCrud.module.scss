@@ -1,0 +1,59 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    table {
+      thead {
+        tr {
+          background: #c4c1c1;
+          height: 40px;
+          th {
+            width: 609px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: black;
+            padding: 0 5px;
+          }
+          :first-child {
+            width: 162px;
+            max-width: 162px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      tbody {
+        tr {
+          height: 40px;
+          text-align: center;
+          
+          td {
+            padding: 0 5px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: black;
+          }
+  
+          :first-child {
+            width: 162px;
+            max-width: 162px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+  
+  .table tbody tr:hover {
+    td{
+      background: #71717166;
+    }
+    
+    cursor: pointer;
+  }

@@ -6,6 +6,9 @@ const _update = `UPDATE ticket.customer SET "type"=$2, company_id=$3, person_id=
 
 const _getById = `SELECT id, "type", company_id, person_id FROM ticket.customer where person_id = $1 or company_id = $1 ;`;
 
-const _deleteById = `DELETE FROM ticket.customer WHERE person_id = $1 or company_id = $1 ;`;
+const _deleteById = `UPDATE ticket.customer
+                      SET "isActive"=false
+                        WHERE company_id =$1
+                          or person_id=$1;`;
 
 export { _getAll, _create, _update, _getById, _deleteById}

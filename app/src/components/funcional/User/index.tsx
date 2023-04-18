@@ -1,3 +1,4 @@
-import User from "./User";
+import  {User} from "./User"
+import { UserForm } from "./UserForm"
 
-export default User
+export {User, UserForm}

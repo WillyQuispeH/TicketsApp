@@ -39,6 +39,7 @@ type customerState = {
     district: string
   ) => void;
   deleteById: (id: string) => void;
+  getById: (id: string) => void;
 };
 const initDataCompany = {
   id: "",
@@ -73,7 +74,7 @@ export const customerStore = create<customerState>((set, get) => ({
   isLoading: false,
   isError: false,
   error: "",
-  
+
   getAll: async () => {
     try {
       set((state) => ({
@@ -121,8 +122,7 @@ export const customerStore = create<customerState>((set, get) => ({
         isError: false,
         error: "",
       }));
-      const { data } = await apiInstance.post("/customer/create/:type", {
-        type,
+      const { data } = await apiInstance.put("/customer/create/"+type, {
         rut,
         companyName,
         name,
@@ -174,8 +174,7 @@ export const customerStore = create<customerState>((set, get) => ({
         isError: false,
         error: "",
       }));
-      const { data } = await apiInstance.put("/customer/update", {
-        id,
+      const { data } = await apiInstance.put("/customer/update/"+id, {
         rut,
         companyName,
         name,
@@ -190,8 +189,8 @@ export const customerStore = create<customerState>((set, get) => ({
       });
       set((state) => ({
         ...state,
-        customerCompany: (data.data.type = "c" ? data.data : initDataCompany),
-        customerPerson: (data.data.type = "p" ? data.data : initDataPerson),
+        customerCompany: data.data.type == "c" ? data.data : initDataCompany,
+        customerPerson: data.data.type == "p" ? data.data : initDataPerson,
         isLoading: false,
         isError: false,
         error: "",
@@ -214,15 +213,71 @@ export const customerStore = create<customerState>((set, get) => ({
         isError: false,
         error: "",
       }));
-      const { data } = await apiInstance.delete("/customer/deleteById/:id", {
-        params: id,
-      });
+      const { data } = await apiInstance.delete("/customer/deleteById/"+id);
       set((state) => ({
         ...state,
         isLoading: false,
         isError: false,
         error: "",
       }));
+    } catch (e) {
+      set((state) => ({
+        ...state,
+        isLoading: false,
+        isError: true,
+        error: (e as Error).message,
+      }));
+    }
+  },
+
+  getById: async (id: string) => {
+    try {
+      set((state) => ({
+        ...state,
+        isLoading: true,
+        isError: false,
+        error: "",
+      }));
+
+      const { data } = await apiInstance.get("/customer/getById/" + id);
+
+      const dataPerson = {
+        type: data.data.type,
+        id: data.data.id,
+        person_id: data.data.person_id,
+        rut: data.data.rut,
+        name: data.data.name,
+        maternalLastName: data.data.maternallastname,
+        paternalLastName: data.data.paternallastname,
+        email: data.data.email,
+        phone: data.data.phone,
+        address: data.data.address,
+        district: data.data.district,
+      };
+      const dataCompany = {
+        type: data.data.type,
+        id: data.data.id,
+        company_id: data.data.company_id,
+        rut: data.data.rut,
+        companyName: data.data.companyname,
+        legalRepresentative: data.data.legalrepresentative,
+        line: data.data.line,
+        email: data.data.email,
+        phone: data.data.phone,
+        address: data.data.address,
+        district: data.data.district,
+      };
+
+      set((state) => ({
+        ...state,
+        customerCompany: data.data.type == "c" ? dataCompany : initDataCompany,
+        customerPerson: data.data.type == "p" ? dataPerson : initDataPerson,
+        isLoading: false,
+        isError: false,
+        error: "",
+      }));
+
+      return data.data;
     } catch (e) {
       set((state) => ({
         ...state,

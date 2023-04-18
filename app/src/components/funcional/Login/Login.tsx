@@ -11,10 +11,9 @@ const Login = () => {
     email: "",
     password: "",
   };
-  
+
   const { validateUser, isLoadingUser } = useUser();
   const router = useRouter();
-
   const [form, setForm] = useState(inicialForm);
 
   const handleOnChange = (e: any) => {
@@ -26,7 +25,7 @@ const Login = () => {
 
   const handleOnclickLogin = () => {
     validateUser(form.email, form.password);
-    router.push("/welcome");
+    router.query.id ? router.push(router.asPath) : router.push("/welcome");
   };
 
   return (
@@ -52,6 +51,7 @@ const Login = () => {
         </Column>
         <Button
           onClick={handleOnclickLogin}
+          background="#0000ff"
           valor="Ingresar"
           width="200px"
           height="40px"

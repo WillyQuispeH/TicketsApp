@@ -16,6 +16,7 @@ const useUser = () => {
   }));
 
   const {
+    getById:getUserById,
     getAll: getAllUser,
     create: createUser,
     update: updateUser,
@@ -31,6 +32,7 @@ const useUser = () => {
     isLoadingUser,
     isErrorUser,
     errorUser,
+    getUserById,
     getAllUser,
     createUser,
     updateUser,

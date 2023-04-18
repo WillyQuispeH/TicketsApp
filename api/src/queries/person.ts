@@ -28,7 +28,7 @@ const _update = `UPDATE ticket.person
 const _deleteById = `DELETE FROM ticket.person WHERE id = $1;`;
 
 const _getById = `SELECT u.id , u.person_id, rut, name, paternallastname, maternallastname, email, phone, address, district 
-FROM ticket.user u
-  INNER JOIN ticket.person  ON  u.person_id = $1;`;
+                    FROM ticket.person p 
+                      INNER JOIN ticket.user u ON  p.id =$1 WHERE u.person_id=$1 `;
 
 export { _getAll, _create, _update, _deleteById, _getByEmail , _getById};

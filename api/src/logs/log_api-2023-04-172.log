@@ -1,0 +1,17 @@
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:02:28"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:02:28"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:03:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:03:42"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:03:43"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 19:10:49"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getById/4d3e22ff-829a-4271-b76d-dd0cf970ef3b"},"timestamp":"2023-04-17 20:08:38"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:08:38"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:08:59"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:09:02"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getById/6dda2a71-749c-486c-b5b1-8dbbb57c6068"},"timestamp":"2023-04-17 20:09:02"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:09:04"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:09:05"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getById/7f276c04-b8a6-456f-b4c8-cedbdaa55722"},"timestamp":"2023-04-17 20:09:05"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:32:29"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getById/d5bdc691-5af4-4332-bb2f-61b119272ac9"},"timestamp":"2023-04-17 20:32:34"}
+{"level":"info","message":{"body":"","method":"GET","params":{},"query":{},"url":"/api/user/getAll"},"timestamp":"2023-04-17 20:32:34"}

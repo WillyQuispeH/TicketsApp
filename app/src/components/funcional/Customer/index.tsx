@@ -1,3 +1,4 @@
-import Customer from "./Customer";
+import { Customer } from "./Customer";
+import { CustomerForm } from "./CustomerForm";
 
-export default Customer
+export { Customer, CustomerForm };

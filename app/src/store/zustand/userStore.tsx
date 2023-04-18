@@ -310,12 +310,22 @@ export const userStore = create<userState>((set, get) => ({
         error: "",
       }));
 
-      const { data } = await apiInstance.get("/user/getById/:id", {
-        params:id
-      });
-      
+      const { data } = await apiInstance.get("/user/getById/"+id);
+      const dataUser ={
+        id: data.data.id,
+        person_id: data.data.person_id,
+        rut: data.data.rut,
+        name: data.data.name,
+        paternalLastName:data.data.paternallastname,
+        maternalLastName: data.data.maternallastname,
+        email: data.data.email,
+        phone: data.data.phone,
+        address: data.data.address,
+        district: data.data.district,
+      }
       set((state) => ({
         ...state,
+        user:dataUser,
         isLoading: false,
         isError: false,
         error: "",

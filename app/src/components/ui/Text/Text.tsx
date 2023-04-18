@@ -1,17 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import styles from './Text.module.scss'
+import styles from "./Text.module.scss";
 
-interface IntText{
-    text:string
+interface IntText {
+  text: string;
+  color?: string;
 }
 
-const Text = ({text} :IntText) => {
+const Text = ({ text, color }: IntText) => {
   return (
-    <div className={styles.text} >
-        <h1>{text}</h1>
+    <div className={styles.text}>
+      <h1 style={{ color }}>{text}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Text
+export default Text;

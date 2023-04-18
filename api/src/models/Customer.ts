@@ -5,6 +5,8 @@ import {
   _deleteById,
   _getAll,
   _getById,
+  _getCompanyById,
+  _getPersonById,
   _update,
 } from "../queries/customer";
 
@@ -16,6 +18,25 @@ const getById: any = async (id: string) => {
     return { sucess: false, data: null, error: (e as Error).message };
   }
 };
+
+const getCompanyById: any = async (id: string) => {
+  try {
+    const result = await pool.query(_getCompanyById, [id]);
+    return { sucess: true, data: result.rows[0], error: false };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+};
+
+const getPersonById: any = async (id: string) => {
+  try {
+    const result = await pool.query(_getPersonById, [id]);
+    return { sucess: true, data: result.rows[0], error: false };
+  } catch (e) {
+    return { sucess: false, data: null, error: (e as Error).message };
+  }
+};
+
 const getAll: any = async () => {
   try {
     const result = await pool.query(_getAll);
@@ -61,4 +82,4 @@ const deleteById: any = async (id: string) => {
   }
 };
 
-export { getAll, create, update, getById , deleteById};
+export { getAll, create, update, getById , deleteById, getCompanyById, getPersonById};

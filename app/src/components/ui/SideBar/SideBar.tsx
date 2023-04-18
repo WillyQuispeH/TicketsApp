@@ -9,12 +9,8 @@ import { useCustomer, useUser } from "@/store/hooks";
 const SideBar = () => {
   const router = useRouter();
   const { sidebar, setSidebar } = useContext(UIContext);
-  const {getAllUser}= useUser();
-  const {getAllCustomer}= useCustomer();
 
   const handleClickOption = (text: string) => {
-    getAllUser();
-    getAllCustomer();
     router.push(text);
     setSidebar(!sidebar);
   };

@@ -19,7 +19,48 @@ const getById = async (req: any, res: any) => {
     return;
   }
 
-  res.status(200).json({ sucess: true, data: resultModel.data, error: false });
+  if (resultModel.data.type == "c") {
+    const resultCustomerModel = await CustomerModel.getCompanyById(
+      resultModel.data.company_id
+    );
+
+    if (!resultCustomerModel.sucess) {
+      createLogger.error({
+        model: "customer/getCompanyById",
+        error: resultCustomerModel.error,
+      });
+      res
+        .status(500)
+        .json({ sucess: false, data: null, error: resultCustomerModel.error });
+      return;
+    }
+    res
+      .status(200)
+      .json({ sucess: true, data: resultCustomerModel.data, error: false });
+    return;
+  }
+
+  if (resultModel.data.type == "p") {
+    const resultCustomerModel = await CustomerModel.getPersonById(
+      resultModel.data.person_id
+    );
+
+    if (!resultCustomerModel.sucess) {
+      createLogger.error({
+        model: "customer/getPersonById",
+        error: resultCustomerModel.error,
+      });
+      res
+        .status(500)
+        .json({ sucess: false, data: null, error: resultCustomerModel.error });
+      return;
+    }
+
+    res
+      .status(200)
+      .json({ sucess: true, data: resultCustomerModel.data, error: false });
+    return;
+  }
 };
 
 const getAll = async (req: any, res: any) => {
@@ -311,87 +352,21 @@ const update = async (req: any, res: any) => {
 
 const deleteById = async (req: any, res: any) => {
   const { id } = req.params;
-  const resultCustomerModel = await CustomerModel.getById(id);
-  if (!resultCustomerModel.sucess) {
+  const resultCustomer = await CustomerModel.deleteById(id);
+  if (!resultCustomer.sucess) {
     createLogger.error({
       model: "customer/getById",
-      error: resultCustomerModel.error,
+      error: resultCustomer.error,
     });
     res
       .status(500)
-      .json({ sucess: false, data: null, error: resultCustomerModel.error });
+      .json({ sucess: false, data: null, error: resultCustomer.error });
     return;
   }
-
-  if (!resultCustomerModel.data) {
-    res.status(200).json({ sucess: false, data: null, error: true });
-    return;
-  }
-
-  if (resultCustomerModel.data.type == "p") {
-    const resultPersonModel = await PersonModel.deleteById(id);
-    if (!resultPersonModel.sucess) {
-      createLogger.error({
-        model: "person/deleteById",
-        error: resultPersonModel.error,
-      });
-
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultPersonModel.error });
-      return;
-    }
-
-    const resultCustomer = await CustomerModel.deleteById(id);
-    if (!resultCustomer.sucess) {
-      createLogger.error({
-        model: "customer/deleteById",
-        error: resultCustomer.error,
-      });
-
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultCustomer.error });
-      return;
-    }
-
-    res
-      .status(200)
-      .json({ sucess: true, data: resultCustomer.data, error: false });
-    return;
-  }
-
-  if (resultCustomerModel.data.type == "c") {
-    const resultCompanyModel = await CompanyModel.deleteById(id);
-    if (!resultCompanyModel.sucess) {
-      createLogger.error({
-        model: "company/deleteById",
-        error: resultCompanyModel.error,
-      });
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultCompanyModel.error });
-      return;
-    }
-
-    const resultCustomer = await CustomerModel.deleteById(id);
-    if (!resultCustomer.sucess) {
-      createLogger.error({
-        model: "customer/deleteById",
-        error: resultCustomer.error,
-      });
-
-      res
-        .status(500)
-        .json({ sucess: false, data: null, error: resultCustomer.error });
-      return;
-    }
-
-    res
-      .status(200)
-      .json({ sucess: true, data: resultCustomer.data, error: false });
-    return;
-  }
+  res
+    .status(200)
+    .json({ sucess: true, data: resultCustomer.data, error: false });
+  return;
 };
 
 export { getAll, create, getById, update, deleteById };

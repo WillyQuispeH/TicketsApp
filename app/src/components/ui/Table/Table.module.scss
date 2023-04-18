@@ -24,10 +24,9 @@
   tbody {
     tr {
       height: 40px;
-      text-align: center;
+      align-items: center;
 
       td {
-        padding: 0 5px;
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -38,6 +37,12 @@
       }
     }
   }
+
+  tfoot{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
 }
 
 .table tbody tr:hover {
@@ -47,3 +52,4 @@
 
   cursor: pointer;
 }
+

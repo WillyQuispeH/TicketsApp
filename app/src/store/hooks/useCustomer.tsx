@@ -3,14 +3,14 @@ import { customerStore } from "../zustand";
 const useCustomer = () => {
   const {
     customerCompany,
-    customerPersona,
+    customerPerson,
     list: customerList,
     isLoading: isLoadingCustomer,
     isError: isErrorCustomer,
     error: errorCustomer,
   } = customerStore((state) => ({
     customerCompany: state.customerCompany,
-    customerPersona: state.customerPerson,
+    customerPerson: state.customerPerson,
     list: state.list,
     isLoading: state.isLoading,
     isError: state.isError,
@@ -22,11 +22,12 @@ const useCustomer = () => {
     create: createCustomer,
     update: updateCustomer,
     deleteById: deleteByIdCustomer,
+    getById:getCustomerById
   } = customerStore();
 
   return {
     customerCompany,
-    customerPersona,
+    customerPerson,
     customerList,
     isLoadingCustomer,
     isErrorCustomer,
@@ -35,6 +36,7 @@ const useCustomer = () => {
     createCustomer,
     updateCustomer,
     deleteByIdCustomer,
+    getCustomerById,
   };
 };
 export default useCustomer;
